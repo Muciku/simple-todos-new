@@ -5,9 +5,17 @@ import { Template } from 'meteor/templating';
 
 import './task.html';
 
- 
+ Template.task.helpers({
 
-Template.task.events({
+  isOwner() {
+
+    return this.owner === Meteor.userId();
+
+  },
+
+});
+
+ Template.task.events({
 
   'click .toggle-checked'() {
 
